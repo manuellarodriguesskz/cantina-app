@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Image
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function LoginScreen({ navigation }: any) {
   const [email, setEmail] = useState("");
@@ -25,26 +26,17 @@ export default function LoginScreen({ navigation }: any) {
       Alert.alert("Erro", "Senha muito curta");
       return;
     }
+      navigation.navigate("Home");
 
-    Alert.alert("Sucesso!", "Você acessou a cantina DOS PRATOS ASIÁTICOS");
-    navigation.navigate("Home");
   }
 
   return (
     <View style={styles.container}>
-
-  
-      <Image
-        source={{
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy4xgjAzHeY1siaNx604cp39pVaSMsEE1eAA&s"
-        }}
-        style={styles.imagem}
-      />
-
       <Text style={styles.titulo}>✨ Login Idol ✨</Text>
 
       <TextInput
         placeholder="Digite seu email"
+        placeholderTextColor="#ddd"
         style={styles.input}
         onChangeText={setEmail}
         value={email}
@@ -53,6 +45,7 @@ export default function LoginScreen({ navigation }: any) {
       <View style={styles.senhaContainer}>
         <TextInput
           placeholder="Informe sua senha"
+          placeholderTextColor="#ddd"
           secureTextEntry={!mostrarSenha}
           style={styles.inputSenha}
           onChangeText={setSenha}
@@ -66,8 +59,8 @@ export default function LoginScreen({ navigation }: any) {
         </TouchableOpacity>
       </View>
 
-      <Button title="Entrar" onPress={handleLogin} />
-    </View>
+      <Button title="Entrar 💜" onPress={handleLogin} />
+    </LinearGradient>
   );
 }
 
@@ -75,8 +68,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    padding: 20,
-    backgroundColor: "#fff"
+    padding: 20
+  },
+  imagem: {
+    width: 150,
+    height: 150,
+    alignSelf: "center",
+    marginBottom: 20,
+    borderRadius: 20
   },
   imagem: {
     width: 150,
@@ -89,29 +88,35 @@ const styles = StyleSheet.create({
     fontSize: 26,
     textAlign: "center",
     marginBottom: 20,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    color: "#fff"
   },
   input: {
+    backgroundColor: "rgba(255,255,255,0.15)",
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "rgba(255,255,255,0.3)",
     padding: 12,
     borderRadius: 10,
-    marginBottom: 15
+    marginBottom: 15,
+    color: "#fff"
   },
   senhaContainer: {
     flexDirection: "row",
     alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.15)",
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: "rgba(255,255,255,0.3)",
     borderRadius: 10,
     marginBottom: 15,
     paddingHorizontal: 10
   },
   inputSenha: {
     flex: 1,
-    padding: 12
+    padding: 12,
+    color: "#fff"
   },
   mostrar: {
-    fontSize: 18
+    fontSize: 18,
+    color: "#fff"
   }
 });
