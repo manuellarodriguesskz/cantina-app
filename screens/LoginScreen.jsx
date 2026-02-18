@@ -20,8 +20,9 @@ export default function LoginScreen({ navigation }: any) {
     if (!email.includes("@")) {
       Alert.alert("Erro", "Email inválido");
       return;
+   
     }
-
+navigation.navigate("Home")
     if (senha.length < 3) {
       Alert.alert("Erro", "Senha muito curta");
       return;
