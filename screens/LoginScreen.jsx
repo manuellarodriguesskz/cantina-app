@@ -6,7 +6,8 @@ import {
   Button,
   Alert,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 
 export default function LoginScreen({ navigation }: any) {
@@ -15,29 +16,38 @@ export default function LoginScreen({ navigation }: any) {
   const [mostrarSenha, setMostrarSenha] = useState(false);
 
   function handleLogin() {
-    // validação básica
     if (!email.includes("@")) {
-      Alert.alert("Sucesso!", "Voce acessou a cantina DOS PRATOS ASIATICOS");
+      Alert.alert("Erro", "Email inválido");
       return;
-   
     }
-navigation.navigate("Home")
+
     if (senha.length < 3) {
       Alert.alert("Erro", "Senha muito curta");
       return;
     }
-      navigation.navigate("Home");
 
+    Alert.alert("Sucesso!", "Você acessou a cantina DOS PRATOS ASIÁTICOS");
+    navigation.navigate("Home");
   }
 
   return (
     <View style={styles.container}>
+
+  
+      <Image
+        source={{
+          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy4xgjAzHeY1siaNx604cp39pVaSMsEE1eAA&s"
+        }}
+        style={styles.imagem}
+      />
+
       <Text style={styles.titulo}>✨ Login Idol ✨</Text>
 
       <TextInput
         placeholder="Digite seu email"
         style={styles.input}
         onChangeText={setEmail}
+        value={email}
       />
 
       <View style={styles.senhaContainer}>
@@ -46,11 +56,10 @@ navigation.navigate("Home")
           secureTextEntry={!mostrarSenha}
           style={styles.inputSenha}
           onChangeText={setSenha}
+          value={senha}
         />
 
-        <TouchableOpacity
-          onPress={() => setMostrarSenha(!mostrarSenha)}
-        >
+        <TouchableOpacity onPress={() => setMostrarSenha(!mostrarSenha)}>
           <Text style={styles.mostrar}>
             {mostrarSenha ? "🙈" : "👁️"}
           </Text>
@@ -68,6 +77,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20,
     backgroundColor: "#fff"
+  },
+  imagem: {
+    width: 150,
+    height: 150,
+    alignSelf: "center",
+    marginBottom: 20,
+    borderRadius: 20
   },
   titulo: {
     fontSize: 26,
