@@ -14,77 +14,77 @@ import {
 const produtos = [
     {
         id:"1",
-        nome:"coxinha",
+        nome:"Bulgogi",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNvW9SmsT9TCvbTB35ZnVFlJO9TrqTt5qoHQ&s",
     },
 
      {
         id:"2",
-        nome:"coxinha",
+        nome:"Ramyeon com Mandu",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt84WvkPcRENmhRz0FEv9vx_0u1n7mgz4pPw&s",
     },
 
      {
         id:"3",
-        nome:"coxinha",
+        nome:"Bibimbap",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3S7kdcbAr_vR2mg2DmGeGBk4s8iIqN7K0Sg&s",
     },
 
      {
         id:"4",
-        nome:"coxinha",
+        nome:"Tteokbokki",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSflz5_Oq9zOrxBQ--VA4Yr0WYNaZ9sZUKf8Q&s",
     },
 
      {
         id:"5",
-        nome:"coxinha",
+        nome:"Kimbap",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOulhV9TX1LGqgRNX0tng210zU6Th1GIioxg&s",
     },
 
      {
         id:"6",
-        nome:"coxinha",
+        nome:"Matcha Muffins",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPc7Qm_DWALPEsB7HqYXPHgJSaGzDy1YVEOA&s",
     },
 
      {
         id:"7",
-        nome:"coxinha",
+        nome:"Tangyuan",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFRlMJHKlBYGG3rDE3srhikhm3GB3U5ANIw&s",
     },
 
      {
         id:"8",
-        nome:"coxinha",
+        nome:"Bungeo-ppang",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeGD8SCUCzyhu00oAXLsLpLwemril-ihn6hg&s",
     },
 
      {
         id:"9",
-        nome:"coxinha",
+        nome:"jungcook (samgyeopsal)",
         preco:5.00,
-        imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRwAM6GSlW6eJEzZ3tFEdBgaEy3-i9sx1TXA&s",
+        imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNvW9SmsT9TCvbTB35ZnVFlJO9TrqTt5qoHQ&s",
     },
 
      {
         id:"10",
-        nome:"coxinha",
+        nome:"kimchi",
         preco:5.00,
-        imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHUNBiNHin6Ry9FFdFDFWhPFZNSEixF0ZtRw&s",
+        imagem:"https://sugaryums.com/wp-content/uploads/2023/03/Baechu-Kimchi-Cabbage-Kimchi-Recipe-SugarYums-2-1152x1536.jpg",
     },
 
      {
         id:"11",
-        nome:"coxinha",
+        nome:"mochi",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUu06s4Gu9u6EtPIH93sRYssUYe5VYNGQgPQ&s",
         destaque: true,
@@ -95,10 +95,14 @@ export default function HomeScreen(){
  const [carrinho, setCarrinho] = useState([]);
     const [modalVisivel, setModalVisivel] = useState(false);
     const [busca, setBusca] = useState("");
+    const [mostrarMensagem,setMostrarMensagem] = useState(false)
 
     const adicionarAoCarrinho = (produto) => {
         setCarrinho([...carrinho, produto]);
-        Alert.alert("Sucesso", `${produto.nome} foi para o carrinho!`);
+        setMostrarMensagem(true);
+        setTimeout(()=>{
+          setMostrarMensagem(false);
+        },2000);    
     };
 
     const removerDoCarrinho = (indexParaRemover) => {
@@ -122,6 +126,10 @@ export default function HomeScreen(){
 
     return (
         <View style={styles.container}>
+          {mostrarMensagem &&(
+          <View style={styles.alertCustomizado}>
+                    <Text style={styles.alertTexto}>Produto adicionado! ✅</Text>
+                </View>)}
             <View style={styles.header}>
                 <Text style={styles.titulo}>Cantina Idol</Text>
                 <TouchableOpacity style={styles.botaoCarrinho} onPress={() => setModalVisivel(true)}>
@@ -149,7 +157,7 @@ export default function HomeScreen(){
                         <Image source={{ uri: item.imagem }} style={styles.imagem} />
                         <View style={styles.info}>
                             <Text style={styles.nome}>{item.nome}</Text>
-                            <Text style={styles.preco}>R$ {item.preco.toFixed(2).replace('.', ',')}</Text>
+                            <Text style={styles.preco}>₩ {item.preco.toFixed(2).replace('.', ',')}</Text>
                         </View>
                         <TouchableOpacity style={styles.botao} onPress={() => adicionarAoCarrinho(item)}>
                             <Text style={styles.botaoTexto}>comprar</Text>
@@ -169,7 +177,7 @@ export default function HomeScreen(){
                             <View style={styles.itemCarrinho}>
                                 <View style={{ flex: 1 }}>
                                     <Text style={styles.nome}>{item.nome}</Text>
-                                    <Text>R$ {item.preco.toFixed(2).replace('.', ',')}</Text>
+                                    <Text>₩ {item.preco.toFixed(2).replace('.', ',')}</Text>
                                 </View>
                                 <TouchableOpacity style={styles.botaoRemover} onPress={() => removerDoCarrinho(index)}>
                                     <Text style={styles.textoRemover}>Remover</Text>
@@ -179,7 +187,7 @@ export default function HomeScreen(){
                         ListEmptyComponent={<Text style={styles.vazio}>O carrinho está vazio!</Text>}
                     />
                     <View style={styles.footerCarrinho}>
-                        <Text style={styles.totalTexto}>Total: R$ {totalCarrinho.toFixed(2).replace('.', ',')}</Text>
+                        <Text style={styles.totalTexto}>Total: ₩ {totalCarrinho.toFixed(2).replace('.', ',')}</Text>
                         <TouchableOpacity style={styles.botaoFechar} onPress={() => setModalVisivel(false)}>
                             <Text style={styles.botaoTexto}>Voltar</Text>
                         </TouchableOpacity>
@@ -191,19 +199,19 @@ export default function HomeScreen(){
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: "#FFF8E1", padding: 16 },
+    container: { flex: 1, backgroundColor: "#b968b9", padding: 16 },
     header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 },
-    titulo: { fontSize: 28, fontWeight: "bold", color: "#FF6F00", textAlign: "center" },
-    subtitulo: { fontSize: 18, fontWeight: "600", color: "#555", marginBottom: 10 },
-    botaoCarrinho: { backgroundColor: '#FF6F00', padding: 10, borderRadius: 50 },
-    textoCarrinho: { color: '#fff', fontWeight: 'bold' },
-    search: { backgroundColor: "#fff", padding: 10, borderRadius: 10, marginBottom: 15, borderWidth: 1, borderColor: "#ddd" },
-    card: { backgroundColor: "#fff", borderRadius: 12, padding: 12, marginBottom: 12, flexDirection: "row", alignItems: "center", elevation: 3 },
+    titulo: { fontSize: 28, fontWeight: "bold", color: "#901090", textAlign: "center" },
+    subtitulo: { fontSize: 18, fontWeight: "600", color: "#901090", marginBottom: 10 },
+    botaoCarrinho: { backgroundColor: '#901090', padding: 10, borderRadius: 50 },
+    textoCarrinho: { color: '#b968b9', fontWeight: 'bold' },
+    search: { backgroundColor: "#901090", padding: 10, borderRadius: 10, marginBottom: 15, borderWidth: 1, borderColor: "#ddd" },
+    card: { backgroundColor: "#901090", borderRadius: 12, padding: 12, marginBottom: 12, flexDirection: "row", alignItems: "center", elevation: 3 },
     imagem: { width: 50, height: 50, marginRight: 12, borderRadius: 8 },
     info: { flex: 1 },
-    nome: { fontSize: 16, fontWeight: "bold" },
+    nome: { fontSize: 16, fontWeight: "bold", color:"#fff" },
     preco: { color: "#4CAF50", marginTop: 4, fontWeight: "600" },
-    botao: { backgroundColor: "#FF9800", paddingVertical: 8, paddingHorizontal: 12, borderRadius: 8 },
+    botao: { backgroundColor: "#b968b9", paddingVertical: 8, paddingHorizontal: 12, borderRadius: 8 },
     botaoTexto: { color: "#fff", fontWeight: "bold" },
     modalContainer: { flex: 1, padding: 20, backgroundColor: '#fff' },
     itemCarrinho: { flexDirection: 'row', justifyContent: 'space-between', padding: 15, borderBottomWidth: 1, borderBottomColor: '#eee', alignItems: 'center' },
@@ -212,5 +220,23 @@ const styles = StyleSheet.create({
     footerCarrinho: { borderTopWidth: 1, borderTopColor: '#ddd', paddingTop: 20 },
     totalTexto: { fontSize: 20, fontWeight: 'bold', marginBottom: 10, textAlign: 'right' },
     botaoFechar: { backgroundColor: '#FF6F00', padding: 15, borderRadius: 10, alignItems: 'center' },
-    vazio: { textAlign: 'center', marginTop: 50, color: '#999', fontSize: 16 }
+    vazio: { textAlign: 'center', marginTop: 50, color: '#901090', fontSize: 16 },
+  adicionarAoCarrinho: { Color:"#b968b9"},
+ alertCustomizado: {
+        position: 'absolute',
+        top: 50,
+        left: 20,
+        right: 20,
+        backgroundColor: '#901090',
+        padding: 15,
+        borderRadius: 10,
+        zIndex: 100, // Valor alto para garantir que apareça na frente de tudo
+        alignItems: 'center',
+        elevation: 10, // Sombra para Android
+    },
+    alertTexto: {
+        color: '#b968b9',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
 });
