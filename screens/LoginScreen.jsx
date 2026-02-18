@@ -19,19 +19,15 @@ export default function LoginScreen({ navigation }: any) {
     if (!email.includes("@")) {
       Alert.alert("Sucesso!", "Voce acessou a cantina DOS PRATOS ASIATICOS");
       return;
+   
     }
-
+navigation.navigate("Home")
     if (senha.length < 3) {
       Alert.alert("Erro", "Senha muito curta");
       return;
     }
-
-    // login teste
-    if (email === "teste@teste.com" && senha === "123") {
       navigation.navigate("Home");
-    } else {
-      Alert.alert("Erro", "Usuário não ");
-    }
+
   }
 
   return (
