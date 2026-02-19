@@ -6,8 +6,7 @@ import {
   Button,
   Alert,
   StyleSheet,
-  TouchableOpacity,
-  Image
+  TouchableOpacity
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -17,11 +16,13 @@ export default function LoginScreen({ navigation }: any) {
   const [mostrarSenha, setMostrarSenha] = useState(false);
 
   function handleLogin() {
+    // validação básica
     if (!email.includes("@")) {
-      Alert.alert("Erro", "Email inválido");
+      Alert.alert("Sucesso!", "Voce acessou a cantina DOS PRATOS ASIATICOS");
       return;
+   
     }
-
+navigation.navigate("Home")
     if (senha.length < 3) {
       Alert.alert("Erro", "Senha muito curta");
       return;
@@ -39,7 +40,6 @@ export default function LoginScreen({ navigation }: any) {
         placeholderTextColor="#ddd"
         style={styles.input}
         onChangeText={setEmail}
-        value={email}
       />
 
       <View style={styles.senhaContainer}>
@@ -49,10 +49,11 @@ export default function LoginScreen({ navigation }: any) {
           secureTextEntry={!mostrarSenha}
           style={styles.inputSenha}
           onChangeText={setSenha}
-          value={senha}
         />
 
-        <TouchableOpacity onPress={() => setMostrarSenha(!mostrarSenha)}>
+        <TouchableOpacity
+          onPress={() => setMostrarSenha(!mostrarSenha)}
+        >
           <Text style={styles.mostrar}>
             {mostrarSenha ? "🙈" : "👁️"}
           </Text>
@@ -69,13 +70,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 20
-  },
-  imagem: {
-    width: 150,
-    height: 150,
-    alignSelf: "center",
-    marginBottom: 20,
-    borderRadius: 20
   },
   imagem: {
     width: 150,
