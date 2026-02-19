@@ -14,18 +14,18 @@ import {
 const produtos = [
     {
         id:"1",
-        nome:"Lisa",
+        nome:"Bulgogi",
         preco:5.00,
-        imagem:"https://jeccachantilly.com/wp-content/uploads/2023/05/korean-pork-bone-soup-2.jpg",
-        destaque: false,
+        imagem:"https://marcwiner.com/wp-content/uploads/2024/01/boeuf-bulgogi-entete-moins-sature-1024x768.jpg",
+        destaque: true,
     },
 
      {
         id:"2",
-        nome:"Rosé",
+        nome:"Ramyeon com Mandu",
         preco:5.00,
-        imagem:"https://marcwiner.com/wp-content/uploads/2024/10/Kimchi-jigae-en-tete.jpg",
-        destaque: false,
+        imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt84WvkPcRENmhRz0FEv9vx_0u1n7mgz4pPw&s",
+        destaque: true,
     },
 
      {
@@ -33,15 +33,15 @@ const produtos = [
         nome:"jimin(Kimchi-jjigae)",
         preco:6.00,
         imagem:"https://i.pinimg.com/1200x/37/d9/c1/37d9c13358675c79521932c7aadb4df5.jpg",
-        destaque: false,
+        destaque: true,
     },
 
      {
         id:"4",
-        nome:"jungcook",
+        nome:"Tteokbokki",
         preco:3.00,
-        imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNvW9SmsT9TCvbTB35ZnVFlJO9TrqTt5qoHQ&s",
-        destaque: false,
+        imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSflz5_Oq9zOrxBQ--VA4Yr0WYNaZ9sZUKf8Q&s",
+        destaque: true,
     },
 
      {
@@ -49,7 +49,7 @@ const produtos = [
         nome:"Kimbap",
         preco:3.50,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOulhV9TX1LGqgRNX0tng210zU6Th1GIioxg&s",
-        destaque: false,
+        destaque: true,
     },
 
      {
@@ -57,7 +57,7 @@ const produtos = [
         nome:"Matcha Muffins",
         preco:2.50,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPc7Qm_DWALPEsB7HqYXPHgJSaGzDy1YVEOA&s",
-        destaque: false,
+        destaque: true,
     },
 
      {
@@ -65,7 +65,7 @@ const produtos = [
         nome:"Tangyuan",
         preco:5.00,
         imagem:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLFRlMJHKlBYGG3rDE3srhikhm3GB3U5ANIw&s",
-        destaque: false,
+        destaque: true,
     },
 
      {
