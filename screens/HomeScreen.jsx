@@ -213,29 +213,145 @@ export default function HomeScreen(){
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16 },
-    header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 15 },
-    titulo: { fontSize: 28, fontWeight: "bold", color: "#901090", textAlign: "center" },
-    subtitulo: { fontSize: 18, fontWeight: "600", color: "#901090", marginBottom: 10 },
-    botaoCarrinho: { backgroundColor: '#901090', padding: 10, borderRadius: 50 },
-    textoCarrinho: { color: '#b968b9', fontWeight: 'bold' },
-    search: { backgroundColor: "#901090", padding: 10, borderRadius: 10, marginBottom: 15, borderWidth: 1, borderColor: "#ddd" },
-    card: { backgroundColor: "#901090", borderRadius: 12, padding: 12, marginBottom: 12, flexDirection:
-     "row", alignItems: "center", elevation: 3, opacity:0.8, },
-    imagem: { width: 50, height: 50, marginRight: 12, borderRadius: 8 },
-    info: { flex: 1 },
-    nome: { fontSize: 16, fontWeight: "bold", color:"#fff" },
-    preco: { color: "#4CAF50", marginTop: 4, fontWeight: "600" },
-    botao: { backgroundColor: "#b968b9", paddingVertical: 8, paddingHorizontal: 12, borderRadius: 8, },
-    botaoTexto: { color: "#fff", fontWeight: "bold" },
-    modalContainer: { flex: 1, padding: 20, backgroundColor: '#fff' },
-    itemCarrinho: { flexDirection: 'row', justifyContent: 'space-between', padding: 15, borderBottomWidth: 1, borderBottomColor: '#eee', alignItems: 'center' },
-    botaoRemover: { backgroundColor: '#ffebee', padding: 8, borderRadius: 5 },
-    textoRemover: { color: '#c62828', fontWeight: 'bold' },
-    footerCarrinho: { borderTopWidth: 1, borderTopColor: '#ddd', paddingTop: 20 },
-    totalTexto: { fontSize: 20, fontWeight: 'bold', marginBottom: 10, textAlign: 'right' },
-    botaoFechar: { backgroundColor: '#FF6F00', padding: 15, borderRadius: 10, alignItems: 'center' },
-    vazio: { textAlign: 'center', marginTop: 50, color: '#901090', fontSize: 16 },
+    container: { 
+        flex: 1, 
+        padding: 16 
+    },
+
+    header: { 
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center', 
+        marginBottom: 15 
+    },
+
+    titulo: { 
+        fontSize: 28, 
+        fontWeight: "bold", 
+        color: "#901090", 
+        textAlign: "center" 
+    },
+
+    subtitulo: { 
+        fontSize: 18, 
+        fontWeight: "600", 
+        color: "#901090", 
+        marginBottom: 10 
+    },
+
+    botaoCarrinho: { 
+        backgroundColor: '#901090', 
+        padding: 10, 
+        borderRadius: 50 
+    },
+
+    textoCarrinho: { 
+        color: '#b968b9', 
+        fontWeight: 'bold' 
+    },
+
+    search: { 
+        backgroundColor: "#901090", 
+        padding: 10, 
+        borderRadius: 10, 
+        marginBottom: 15, 
+        borderWidth: 1, 
+        borderColor: "#ddd" 
+    },
+    card: { 
+        backgroundColor: "#901090",
+        borderRadius: 12, 
+        padding: 12, 
+        marginBottom: 12, 
+        flexDirection:"row", 
+        alignItems: "center", 
+        elevation: 3, 
+        opacity:0.8, 
+    },
+
+    imagem: { 
+        width: 50, 
+        height: 50, 
+        marginRight: 12, 
+        borderRadius: 8 },
+    info: { 
+        flex: 1 
+        },
+    nome: { 
+        fontSize: 16, 
+        fontWeight: "bold", 
+        color:"#fff" },
+
+    preco: { 
+        color: "#4CAF50", 
+        marginTop: 4, 
+        fontWeight: "600" },
+
+    botao: { 
+        backgroundColor: "#b968b9", 
+        paddingVertical: 8, 
+        paddingHorizontal: 12, 
+        borderRadius: 8, 
+    },
+
+    botaoTexto: {
+        color: "#fff", 
+        fontWeight: "bold" 
+    },
+
+    modalContainer: { 
+        flex: 1, 
+        padding: 20, 
+        backgroundColor: '#fff' 
+    },
+
+    itemCarrinho: { 
+        flexDirection: 'row',
+        justifyContent: 'space-between', 
+        padding: 15, 
+        borderBottomWidth: 1, 
+        borderBottomColor: '#eee', 
+        alignItems: 'center' 
+    },
+
+    botaoRemover: { 
+        backgroundColor: '#ffebee',
+        padding: 8, 
+        borderRadius: 5 
+    },
+
+    textoRemover: { 
+        color: '#c62828',
+        fontWeight: 'bold' 
+    },
+
+    footerCarrinho: { 
+        borderTopWidth: 1, 
+        borderTopColor: '#ddd',
+        paddingTop: 20 
+    },
+
+    totalTexto: { 
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 10,
+        textAlign: 'right' 
+    },
+
+    botaoFechar: { 
+        backgroundColor: '#FF6F00',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center' 
+    },
+
+    vazio: { 
+        textAlign: 'center',
+        marginTop: 50,
+        color: '#901090',
+        fontSize: 16 
+    },
+
  alertCustomizado: {
         position: 'absolute',
         top: 50,
@@ -250,6 +366,7 @@ const styles = StyleSheet.create({
         borderColor:'#901090',
         borderWidth: 3,
     },
+    
     alertTexto: {
         color: '#901090',
         fontWeight: 'bold',
