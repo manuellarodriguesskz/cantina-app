@@ -17,35 +17,41 @@ export default function LoginScreen({ navigation }: any) {
   const [mostrarSenha, setMostrarSenha] = useState(false);
 
   function handleLogin() {
-   
     if (!email.includes("@")) {
       Alert.alert("Erro", "Por favor, insira um e-mail válido.");
       return; 
     }
 
-  
     if (senha.length < 6) {
       Alert.alert("Erro", "A senha deve ter pelo menos 6 caracteres.");
       return;
     }
 
-  
     Alert.alert("Sucesso!", "Você acessou a cantina DOS PRATOS ASIÁTICOS 💜");
     navigation.navigate("Home");
   }
- 
+
+
+  const uriEmoji = "https://em-content.zobj.net/source/apple/391/biting-lip_1fae6.png";
 
   return (
     <LinearGradient
       colors={["#2a003f", "#5f0f99", "#a64dff"]}
       style={styles.container}
     >
-      <Image
-        source={{
-          uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy4xgjAzHeY1siaNx604cp39pVaSMsEE1eAA&s"
-        }}
-        style={styles.imagem}
-      />
+    
+      <View style={styles.headerImagens}>
+        <Image source={{ uri: uriEmoji }} style={styles.emoji} />
+        
+        <Image
+          source={{
+            uri: "https://i.pinimg.com/236x/49/73/88/4973888f03316822bdf949a2acd013c4.jpg"
+          }}
+          style={styles.imagemCentral}
+        />
+
+        <Image source={{ uri: uriEmoji }} style={styles.emoji} />
+      </View>
 
       <Text style={styles.titulo}>✨ Login Idol ✨</Text>
 
@@ -87,12 +93,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 20
   },
-  imagem: {
-    width: 150,
-    height: 150,
-    alignSelf: "center",
+  headerImagens: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     marginBottom: 20,
-    borderRadius: 20
+  },
+  imagemCentral: {
+    width: 130,
+    height: 130,
+    borderRadius: 20,
+    marginHorizontal: 10,
+  },
+  emoji: {
+    width: 50,
+    height: 50,
   },
   titulo: {
     fontSize: 26,
